@@ -3,45 +3,45 @@
 Напишите программу, которая будет находить строку с наименьшей суммой элементов.
 */
 
-int[,] Createmassive(int row, int col)
+int[,] CreateArray(int row, int col)
 {
-    int[,] massive = new int[row, col];
-    for (int i = 0; i < massive.GetLength(0); i++)
+    int[,] array = new int[row, col];
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < massive.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            massive[i, j] = new Random().Next(1, 10);
+            array[i, j] = new Random().Next(1, 10);
         }
     }
-    return massive;
+    return array;
 }
 
-void Printmassive(int[,] massive)
+void PrintArray(int[,] array)
 {
-    for (int i = 0; i < massive.GetLength(0); i++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < massive.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            Console.Write($"{massive[i, j]}\t");
+            Console.Write($"{array[i, j]}\t");
         }
         System.Console.WriteLine();
     }
 }
 
 
-int FindSumString(int[,] massive, int i)
+int FindSumString(int[,] array, int i)
 {
-    int sum = massive[i, 0];
-    for (int j = 1; j < massive.GetLength(1); j++)
+    int sum = array[i, 0];
+    for (int j = 1; j < array.GetLength(1); j++)
     {
-        sum += massive[i, j];
+        sum += array[i, j];
     }
     return sum;
 }
 
 
-int[,] massive = Createmassive(3, 4);
-Printmassive(massive);
+int[,] massive = CreateArray(3, 4);
+PrintArray(massive);
 
 int minstr = 0;
 int minsum = FindSumString(massive, 0);
